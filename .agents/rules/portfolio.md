@@ -48,4 +48,5 @@ Before finishing any task:
 
 - Commit after every completed phase with a **Conventional Commit** message (`feat:`, `fix:`, `chore:`, `docs:`).
 - **Never commit** `.env` files, tokens, or secrets.
-- **Never force push.** Never push to GitHub without explicit user confirmation.
+- **Never force push.**
+- Remote: `https://github.com/nadim-altaf/portfolio.git` (branch: `main`). **Push only when the user says so.**
