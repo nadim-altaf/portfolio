@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, FileText, CheckCircle2 } from "lucide-react";
 import { GlassCard } from "./glass-card";
 import { SectionHeader } from "./section-header";
 import { ScrollReveal } from "./scroll-reveal";
@@ -16,50 +16,80 @@ export function Certificates() {
           <SectionHeader
             label={certificates.sectionLabel}
             title={certificates.title}
+            subtitle="Verified credentials from industry and academic specializations."
             centered
             className="mb-12"
           />
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="max-w-2xl mx-auto">
           {certificates.items.map((cert, index) => {
             const hasVerification = Boolean(
               cert.verificationUrl && cert.verificationUrl !== "#"
             );
+            const hasPdf = Boolean(cert.pdfPath && cert.pdfPath !== "#");
 
             return (
               <ScrollReveal
                 key={cert.name}
                 direction="up"
-                delay={0.05 * (index % 3)}
+                delay={0.1 * index}
               >
-                <GlassCard className="p-6 flex flex-col gap-3 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(0,212,255,0.3)] h-full">
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center text-lg shrink-0"
-                    style={{ background: cert.iconBg }}
-                  >
-                    {cert.icon}
+                <GlassCard className="p-8 flex flex-col gap-5 transition-all duration-300 hover:border-[#00d4ff]/40">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex items-center gap-3.5">
+                      <div
+                        className="w-12 h-12 rounded-xl flex items-center justify-center text-xl shrink-0"
+                        style={{ background: cert.iconBg }}
+                      >
+                        {cert.icon}
+                      </div>
+                      <div>
+                        <div className="text-[0.7rem] font-bold uppercase tracking-wider text-[#00d4ff]">
+                          {cert.issuer}
+                        </div>
+                        <h3 className="text-lg font-bold text-[var(--text)] leading-snug">
+                          {cert.name}
+                        </h3>
+                      </div>
+                    </div>
+
+                    <span className="font-mono text-xs text-[var(--muted)] shrink-0 px-2.5 py-1 rounded-md bg-[var(--surface2)] border border-[var(--border-color)]">
+                      {cert.year}
+                    </span>
                   </div>
 
-                  <div className="text-[0.7rem] font-bold uppercase tracking-wider text-[var(--muted)]">
-                    {cert.issuer}
+                  <p className="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+                    {cert.scope}
+                  </p>
+
+                  <div className="flex items-center gap-2 text-[0.75rem] text-[var(--muted)]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#28c840]" />
+                    <span>{cert.note}</span>
                   </div>
 
-                  <h3 className="text-sm font-bold text-[var(--text)] leading-snug flex-1">
-                    {cert.name}
-                  </h3>
+                  <div className="flex flex-wrap gap-3 pt-3 border-t border-[var(--border-color)]">
+                    {hasPdf && (
+                      <a
+                        href={cert.pdfPath}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold bg-[var(--surface3)] text-[var(--text)] border border-[var(--border-color)] hover:border-[#00d4ff] hover:text-[#00d4ff] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
+                      >
+                        <FileText className="w-3.5 h-3.5 text-[#00d4ff]" />
+                        View Certificate PDF
+                      </a>
+                    )}
 
-                  <div className="flex items-center justify-between font-mono text-[0.72rem] text-[var(--muted)] mt-1">
-                    <span>{cert.year}</span>
                     {hasVerification && (
                       <a
                         href={cert.verificationUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[#00d4ff] hover:underline"
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold text-[#00d4ff] hover:underline transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
                       >
-                        Verify
-                        <ExternalLink className="w-3 h-3" />
+                        Verify on Coursera
+                        <ExternalLink className="w-3.5 h-3.5" />
                       </a>
                     )}
                   </div>

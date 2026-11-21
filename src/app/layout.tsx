@@ -5,8 +5,14 @@ import { siteConfig } from "@/data/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} — Data Science & ML Portfolio`,
-  description: `Portfolio of ${siteConfig.name}, specializing in Data Science and Machine Learning.`,
+  title: `${siteConfig.name} — Applied AI Engineer Portfolio`,
+  description: `Portfolio of ${siteConfig.name}, Aspiring Applied AI Engineer specializing in Generative AI, LLM-powered applications, and Agentic Systems.`,
+  openGraph: {
+    title: `${siteConfig.name} — Applied AI Engineer`,
+    description:
+      "Aspiring Applied AI Engineer focusing on Generative AI, LLMs, and intelligent systems.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

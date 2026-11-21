@@ -29,7 +29,7 @@ export function Education() {
         </ScrollReveal>
 
         <ScrollReveal direction="up" delay={0.1}>
-          <GlassCard className="p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+          <GlassCard className="p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start max-w-3xl mx-auto">
             <div className="w-14 h-14 rounded-2xl bg-[rgba(240,180,41,0.1)] border border-[rgba(240,180,41,0.2)] flex items-center justify-center text-2xl shrink-0">
               🎓
             </div>
@@ -53,18 +53,20 @@ export function Education() {
                 ))}
               </div>
 
-              <div className="mt-5 pt-5 border-t border-[var(--border-color)]">
-                <h4 className="text-[0.7rem] font-bold uppercase tracking-wider text-[var(--muted)] mb-3">
-                  Relevant Coursework
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {item.coursework.map((course) => (
-                    <span key={course} className="tag">
-                      {course}
-                    </span>
-                  ))}
+              {item.coursework && item.coursework.length > 0 && (
+                <div className="mt-5 pt-5 border-t border-[var(--border-color)]">
+                  <h4 className="text-[0.7rem] font-bold uppercase tracking-wider text-[var(--muted)] mb-3">
+                    Relevant Coursework
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {item.coursework.map((course) => (
+                      <span key={course} className="tag">
+                        {course}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </GlassCard>
         </ScrollReveal>

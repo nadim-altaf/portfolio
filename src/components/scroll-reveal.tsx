@@ -9,6 +9,7 @@ interface ScrollRevealProps {
   delay?: number;
   duration?: number;
   className?: string;
+  id?: string;
 }
 
 export function ScrollReveal({
@@ -17,11 +18,12 @@ export function ScrollReveal({
   delay = 0,
   duration = 0.6,
   className = "",
+  id,
 }: ScrollRevealProps) {
   const shouldReduceMotion = useReducedMotion();
 
   if (shouldReduceMotion || direction === "none") {
-    return <div className={className}>{children}</div>;
+    return <div id={id} className={className}>{children}</div>;
   }
 
   const offset = 28;
@@ -34,6 +36,7 @@ export function ScrollReveal({
 
   return (
     <motion.div
+      id={id}
       initial={initialVariants[direction]}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
