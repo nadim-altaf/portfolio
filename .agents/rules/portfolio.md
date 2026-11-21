@@ -50,3 +50,15 @@ Before finishing any task:
 - **Never commit** `.env` files, tokens, or secrets.
 - **Never force push.**
 - Remote: `https://github.com/nadim-altaf/portfolio.git` (branch: `main`). **Push only when the user says so.**
+
+## Comment Style (write like a human developer)
+
+- Comment sparingly. Only comment the **"why"** (a workaround, a non-obvious decision, a gotcha), never what the code obviously does.
+- Keep comments short: one line, plain language, a normal casual tone. Lowercase starts are fine.
+- No decorative banners or dividers (no `═══`, `───`, `*****` lines, no "SECTION 1" headers).
+- No JSDoc/TSDoc blocks on simple functions or components. Use them only for genuinely reusable utilities with non-obvious parameters.
+- No emojis, no "Step 1 / Step 2" comments, no "this function does..." or "Here we..." phrasing.
+- Don't comment every function or every JSX block. Most files should have only a few comments, and many none at all.
+- Use `TODO` only for real remaining work, written like `TODO: add real demo link`.
+- Commit messages: short, lowercase Conventional Commits, one line (e.g. `feat: add project filter`). No long bullet-list bodies.
+- Names should explain the code so comments aren't needed.
