@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nadim Altaf — Data Science & ML Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="grad-cyan">NA</span><span style="opacity:0.3"> /</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certificates">Certs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-sun"></i>
+        </button>
+        <a href="#" class="btn-primary" style="padding:10px 20px;font-size:0.78rem;">
+          <i class="fas fa-download"></i> Resume
+        </a>
+        <div id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu">
+    <a href="#about"        onclick="toggleMenu()">About</a>
+    <a href="#skills"       onclick="toggleMenu()">Skills</a>
+    <a href="#projects"     onclick="toggleMenu()">Projects</a>
+    <a href="#education"    onclick="toggleMenu()">Education</a>
+    <a href="#certificates" onclick="toggleMenu()">Certificates</a>
+    <a href="#contact"      onclick="toggleMenu()">Contact</a>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+
+    <div class="container hero-flex">
+
+      <!-- Left: Text Content -->
+      <div class="hero-content">
+        <div class="hero-badge reveal">
+          <span class="dot"></span>
+          Available for Internships &amp; Opportunities
+        </div>
+
+        <h1 class="hero-name serif reveal" style="transition-delay:0.1s;">
+          Nadim<br><span class="grad-cyan">Altaf</span>
+        </h1>
+
+        <p class="hero-role mono reveal" style="transition-delay:0.2s;">
+          &lt; Data Science &amp; Machine Learning Student /&gt;
+        </p>
+
+        <p class="hero-tagline reveal" style="transition-delay:0.3s;">
+          Transforming raw data into
+          <span id="typedWord" class="grad-gold"></span><span class="typing-cursor"></span><br/>
+          intelligence that drives decisions.
+        </p>
+
+        <div class="hero-buttons reveal" style="transition-delay:0.4s;">
+          <a href="#projects" class="btn-primary"><i class="fas fa-rocket"></i> View Projects</a>
+          <a href="#contact"  class="btn-secondary"><i class="fas fa-envelope"></i> Get in Touch</a>
+          <a href="#"         class="btn-secondary"><i class="fas fa-file-pdf"></i> Resume</a>
+        </div>
+
+        <div class="hero-stats reveal" style="transition-delay:0.5s;">
+          <div class="stat">
+            <div class="stat-num grad-cyan serif">8+</div>
+            <div class="stat-label">Projects Built</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num grad-gold serif">5</div>
+            <div class="stat-label">Certificates</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num serif">3rd</div>
+            <div class="stat-label">Year Student</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Code Window Card -->
+      <div class="hero-visual reveal-right" style="transition-delay:0.3s;">
+        <div class="hero-card-main">
+          <div class="hero-card-header">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+            <span class="card-filename mono">model.py</span>
+          </div>
+          <div class="code-window mono">
+            <div class="code-line"><span class="ln">1</span><span><span class="kw">import</span> pandas <span class="kw">as</span> pd</span></div>
+            <div class="code-line"><span class="ln">2</span><span><span class="kw">import</span> numpy <span class="kw">as</span> np</span></div>
+            <div class="code-line"><span class="ln">3</span><span><span class="kw">from</span> sklearn <span class="kw">import</span> metrics</span></div>
+            <div class="code-line"><span class="ln">4</span><span></span></div>
+            <div class="code-line"><span class="ln">5</span><span><span class="cm"># Train model</span></span></div>
+            <div class="code-line"><span class="ln">6</span><span><span class="fn">model</span> <span class="op">=</span> RandomForest(</span></div>
+            <div class="code-line"><span class="ln">7</span><span>&nbsp;&nbsp;n_estimators<span class="op">=</span><span class="num">200</span>,</span></div>
+            <div class="code-line"><span class="ln">8</span><span>&nbsp;&nbsp;max_depth<span class="op">=</span><span class="num">8</span></span></div>
+            <div class="code-line"><span class="ln">9</span><span>)</span></div>
+            <div class="code-line"><span class="ln">10</span><span><span class="fn">model</span>.fit(X_train, y)</span></div>
+            <div class="code-line"><span class="ln">11</span><span></span></div>
+            <div class="code-line"><span class="ln">12</span><span><span class="cm"># Accuracy</span></span></div>
+            <div class="code-line"><span class="ln">13</span><span>acc <span class="op">=</span> <span class="fn">metrics</span>.accuracy(</span></div>
+            <div class="code-line"><span class="ln">14</span><span>&nbsp;&nbsp;y_test, y_pred</span></div>
+            <div class="code-line"><span class="ln">15</span><span>)  <span class="cm"># → 94.7%</span></span></div>
+          </div>
+        </div>
+
+        <div class="float-card float-card-1 glass">
+          <div class="float-label">Model Accuracy</div>
+          <div class="float-val grad-cyan">94.7%</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:94.7%"></div></div>
+          <div class="float-sub">Random Forest · 200 trees</div>
+        </div>
+
+        <div class="float-card float-card-2 glass">
+          <div class="float-label">Dataset Size</div>
+          <div class="float-val grad-gold">50K</div>
+          <div class="float-sub">rows processed ✓</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Left -->
+        <div class="reveal-left">
+          <div class="section-label">About Me</div>
+          <h2 class="section-title" style="margin-bottom:1.75rem;">
+            Curious mind.<br/><span class="serif" style="font-style:italic;">Data-driven</span> heart.
+          </h2>
+          <p class="about-text">
+            I'm <strong>Nadim Altaf</strong>, a 3rd-year Computer Science student specialising in
+            Data Science and Machine Learning at the <strong>Cenrtal University Of Kashmir</strong>.
+            I love digging into complex datasets and building models that generate real-world value.
+          </p>
+          <p class="about-text" style="margin-top:1rem;">
+            Outside academics, I explore <strong>Kaggle competitions</strong>, contribute to
+            open-source data tooling, and write articles breaking down ML concepts for beginners.
+          </p>
+          <div class="goal-card">
+            <h4><i class="fas fa-bullseye" style="margin-right:6px;"></i>Career Goal</h4>
+            <p>To join a research-driven team or data-forward company where I can develop scalable
+              ML pipelines, contribute to applied AI research, and keep pushing the frontier of
+              what data can tell us.</p>
+          </div>
+        </div>
+
+        <!-- Right -->
+        <div class="reveal-right about-right">
+          <!-- Skill Bars -->
+          <div class="glass about-bars-card">
+            <h4 class="snapshot-label">Quick Snapshot</h4>
+            <div class="skill-bar-list">
+              <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                  <span>Python / Data Science</span><span class="mono skill-pct grad-cyan">95%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width:95%"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                  <span>Machine Learning</span><span class="mono skill-pct grad-cyan">80%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                  <span>Data Visualisation</span><span class="mono skill-pct grad-cyan">88%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width:88%"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-header">
+                  <span>Deep Learning</span><span class="mono skill-pct grad-cyan">65%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mini Cards -->
+          <div class="about-mini-grid">
+            <div class="glass mini-card"><div class="mini-icon">🏆</div><div class="mini-title">Kaggle Expert</div><div class="mini-sub">Top 15%</div></div>
+            <div class="glass mini-card"><div class="mini-icon">⭐</div><div class="mini-title">GPA 3.8 / 4.0</div><div class="mini-sub">Dean's List</div></div>
+            <div class="glass mini-card"><div class="mini-icon">📦</div><div class="mini-title">Open Source</div><div class="mini-sub">12 Contributions</div></div>
+            <div class="glass mini-card"><div class="mini-icon">✍️</div><div class="mini-title">Tech Writer</div><div class="mini-sub">20+ Articles</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       SKILLS
+  ══════════════════════════════════════════ -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-center reveal">
+        <div class="section-label" style="justify-content:center;">Skills &amp; Tools</div>
+        <h2 class="section-title">My Technical Arsenal</h2>
+        <p class="section-sub">Languages, frameworks, and tools I wield to turn data into decisions.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="glass skill-group reveal" style="transition-delay:0.1s;">
+          <div class="sg-icon" style="background:rgba(0,212,255,0.1);">💻</div>
+          <div class="sg-title">Programming Languages</div>
+          <div class="skill-tags">
+            <span class="tag">Python</span><span class="tag">Java</span>
+            <span class="tag">C</span><span class="tag">C++</span>
+            <span class="tag">SQL</span><span class="tag">Bash</span>
+          </div>
+        </div>
+
+        <div class="glass skill-group reveal" style="transition-delay:0.2s;">
+          <div class="sg-icon" style="background:rgba(240,180,41,0.1);">📊</div>
+          <div class="sg-title">Data Science Libraries</div>
+          <div class="skill-tags">
+            <span class="tag">Pandas</span><span class="tag">NumPy</span>
+            <span class="tag">Matplotlib</span><span class="tag">Seaborn</span>
+            <span class="tag">Plotly</span><span class="tag">SciPy</span>
+          </div>
+        </div>
+
+        <div class="glass skill-group reveal" style="transition-delay:0.3s;">
+          <div class="sg-icon" style="background:rgba(138,43,226,0.15);">🤖</div>
+          <div class="sg-title">Machine Learning</div>
+          <div class="skill-tags">
+            <span class="tag">Scikit-learn</span><span class="tag">TensorFlow</span>
+            <span class="tag">Keras</span><span class="tag">XGBoost</span>
+            <span class="tag">LightGBM</span><span class="tag">NLTK</span>
+          </div>
+        </div>
+
+        <div class="glass skill-group reveal" style="transition-delay:0.4s;">
+          <div class="sg-icon" style="background:rgba(40,200,64,0.1);">🛠️</div>
+          <div class="sg-title">Tools &amp; Platforms</div>
+          <div class="skill-tags">
+            <span class="tag">Git</span><span class="tag">GitHub</span>
+            <span class="tag">VS Code</span><span class="tag">Jupyter</span>
+            <span class="tag">Docker</span><span class="tag">Linux</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       PROJECTS
+  ══════════════════════════════════════════ -->
+  <section id="projects">
+    <div class="container">
+      <div class="projects-header reveal">
+        <div>
+          <div class="section-label">Portfolio</div>
+          <h2 class="section-title">Featured Projects</h2>
+        </div>
+        <a href="https://github.com" target="_blank" class="btn-secondary btn-sm">
+          <i class="fab fa-github"></i> All on GitHub
+        </a>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="project-card glass reveal" style="transition-delay:0.1s;">
+          <div class="project-banner-wrap">
+            <div class="project-banner" style="background:linear-gradient(135deg,#0a1628,#1a3a5c);">🧠</div>
+          </div>
+          <div class="project-body">
+            <div class="project-title">Customer Churn Predictor</div>
+            <div class="project-desc">ML pipeline to predict telecom customer churn with 94.7% accuracy using ensemble methods, SMOTE balancing, and SHAP explainability.</div>
+            <div class="project-tech">
+              <span class="tech-badge">Python</span><span class="tech-badge">Scikit-learn</span>
+              <span class="tech-badge">XGBoost</span><span class="tech-badge">SHAP</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="proj-link gh"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="proj-link demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass reveal" style="transition-delay:0.2s;">
+          <div class="project-banner-wrap">
+            <div class="project-banner" style="background:linear-gradient(135deg,#0a1a10,#1a4a28);">📈</div>
+          </div>
+          <div class="project-body">
+            <div class="project-title">Stock Price Forecasting</div>
+            <div class="project-desc">LSTM neural network to forecast daily closing prices for S&amp;P 500 stocks, with interactive Plotly dashboard and live API integration.</div>
+            <div class="project-tech">
+              <span class="tech-badge">TensorFlow</span><span class="tech-badge">LSTM</span>
+              <span class="tech-badge">Plotly</span><span class="tech-badge">Pandas</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="proj-link gh"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="proj-link demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass reveal" style="transition-delay:0.3s;">
+          <div class="project-banner-wrap">
+            <div class="project-banner" style="background:linear-gradient(135deg,#1a0a28,#3a1a56);">🔍</div>
+          </div>
+          <div class="project-body">
+            <div class="project-title">NLP Sentiment Analyser</div>
+            <div class="project-desc">Fine-tuned BERT model for multi-class sentiment analysis on product reviews. REST API backend with Flask and React frontend dashboard.</div>
+            <div class="project-tech">
+              <span class="tech-badge">BERT</span><span class="tech-badge">HuggingFace</span>
+              <span class="tech-badge">Flask</span><span class="tech-badge">React</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="proj-link gh"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="proj-link demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass reveal" style="transition-delay:0.1s;">
+          <div class="project-banner-wrap">
+            <div class="project-banner" style="background:linear-gradient(135deg,#1a1a0a,#4a420a);">🗺️</div>
+          </div>
+          <div class="project-body">
+            <div class="project-title">COVID-19 EDA Dashboard</div>
+            <div class="project-desc">Interactive data exploration dashboard analysing global COVID trends with geospatial heatmaps, time-series, and correlation analysis.</div>
+            <div class="project-tech">
+              <span class="tech-badge">Pandas</span><span class="tech-badge">Seaborn</span>
+              <span class="tech-badge">Plotly</span><span class="tech-badge">Streamlit</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="proj-link gh"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="proj-link demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass reveal" style="transition-delay:0.2s;">
+          <div class="project-banner-wrap">
+            <div class="project-banner" style="background:linear-gradient(135deg,#0a1818,#0a3030);">🌿</div>
+          </div>
+          <div class="project-body">
+            <div class="project-title">Plant Disease Detector</div>
+            <div class="project-desc">CNN image classifier identifying 38 plant diseases from leaf photos with 96% accuracy. Mobile-optimised with TFLite deployment.</div>
+            <div class="project-tech">
+              <span class="tech-badge">TensorFlow</span><span class="tech-badge">CNN</span>
+              <span class="tech-badge">TFLite</span><span class="tech-badge">OpenCV</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="proj-link gh"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="proj-link demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass reveal" style="transition-delay:0.3s;">
+          <div class="project-banner-wrap">
+            <div class="project-banner" style="background:linear-gradient(135deg,#1a0a10,#3a0a28);">🎯</div>
+          </div>
+          <div class="project-body">
+            <div class="project-title">Movie Recommendation Engine</div>
+            <div class="project-desc">Collaborative &amp; content-based hybrid recommender system using matrix factorisation (SVD) and cosine similarity on 100K ratings.</div>
+            <div class="project-tech">
+              <span class="tech-badge">NumPy</span><span class="tech-badge">SVD</span>
+              <span class="tech-badge">Scikit-learn</span><span class="tech-badge">FastAPI</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="proj-link gh"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="proj-link demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       EDUCATION
+  ══════════════════════════════════════════ -->
+  <section id="education">
+    <div class="container">
+      <div class="section-center reveal" style="margin-bottom:3rem;">
+        <div class="section-label" style="justify-content:center;">Background</div>
+        <h2 class="section-title">Education</h2>
+      </div>
+
+      <div class="edu-card glass reveal">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-body">
+          <div class="edu-degree">B.Sc. Computer Science</div>
+          <div class="edu-uni">University of Technology — Faculty of Engineering &amp; Computing</div>
+          <div class="edu-meta">
+            <span class="edu-badge badge-gold">2022 – 2026</span>
+            <span class="edu-badge badge-cyan">6th Semester</span>
+            <span class="edu-badge badge-green">GPA 3.8 / 4.0</span>
+            <span class="edu-badge badge-purple">Dean's List</span>
+          </div>
+          <div class="edu-courses">
+            <h5>Relevant Coursework</h5>
+            <div class="skill-tags">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Data Structures &amp; Algorithms</span>
+              <span class="tag">Database Systems</span>
+              <span class="tag">Statistics &amp; Probability</span>
+              <span class="tag">Linear Algebra</span>
+              <span class="tag">Computer Vision</span>
+              <span class="tag">Natural Language Processing</span>
+              <span class="tag">Cloud Computing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       CERTIFICATES
+  ══════════════════════════════════════════ -->
+  <section id="certificates">
+    <div class="container">
+      <div class="section-center reveal">
+        <div class="section-label" style="justify-content:center;">Credentials</div>
+        <h2 class="section-title">Certifications</h2>
+      </div>
+
+      <div class="certs-grid">
+
+        <div class="cert-card glass reveal" style="transition-delay:0.05s;">
+          <div class="cert-icon" style="background:rgba(0,100,255,0.12);">🔵</div>
+          <div class="cert-org">IBM / Coursera</div>
+          <div class="cert-name">IBM Data Analyst Professional Certificate</div>
+          <div class="cert-year">2023 · ID: ABC123</div>
+        </div>
+
+        <div class="cert-card glass reveal" style="transition-delay:0.1s;">
+          <div class="cert-icon" style="background:rgba(255,150,0,0.12);">🟠</div>
+          <div class="cert-org">Google / Coursera</div>
+          <div class="cert-name">Google Data Analytics Certificate</div>
+          <div class="cert-year">2023 · ID: GDA456</div>
+        </div>
+
+        <div class="cert-card glass reveal" style="transition-delay:0.15s;">
+          <div class="cert-icon" style="background:rgba(0,212,255,0.12);">🔷</div>
+          <div class="cert-org">DeepLearning.AI</div>
+          <div class="cert-name">Machine Learning Specialisation</div>
+          <div class="cert-year">2024 · ID: ML789</div>
+        </div>
+
+        <div class="cert-card glass reveal" style="transition-delay:0.2s;">
+          <div class="cert-icon" style="background:rgba(255,80,80,0.12);">❤️</div>
+          <div class="cert-org">Stanford Online</div>
+          <div class="cert-name">Statistical Learning &amp; Inference</div>
+          <div class="cert-year">2023 · ID: SL012</div>
+        </div>
+
+        <div class="cert-card glass reveal" style="transition-delay:0.25s;">
+          <div class="cert-icon" style="background:rgba(40,200,64,0.12);">🟢</div>
+          <div class="cert-org">Microsoft Learn</div>
+          <div class="cert-name">Azure AI Fundamentals (AI-900)</div>
+          <div class="cert-year">2024 · ID: AZ345</div>
+        </div>
+
+        <div class="cert-card glass reveal" style="transition-delay:0.3s;">
+          <div class="cert-icon" style="background:rgba(138,43,226,0.12);">🟣</div>
+          <div class="cert-org">Kaggle</div>
+          <div class="cert-name">Advanced SQL + Pandas Micro-courses</div>
+          <div class="cert-year">2023 · Kaggle Learn</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-center reveal">
+        <div class="section-label" style="justify-content:center;">Get in Touch</div>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-sub">Open to internships, research collaborations, and interesting data conversations. My inbox is always open.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Links -->
+        <div class="reveal-left">
+          <div class="contact-links">
+
+            <a href="mailto:alex.morgan@email.com" class="contact-link">
+              <div class="contact-link-icon" style="background:rgba(0,212,255,0.1);">
+                <i class="fas fa-envelope" style="color:var(--cyan);"></i>
+              </div>
+              <div class="contact-link-text">
+                <div class="cl-label">Email</div>
+                <div class="cl-val">alex.morgan@email.com</div>
+              </div>
+              <i class="fas fa-arrow-right cl-arrow"></i>
+            </a>
+
+            <a href="https://github.com/alexmorgan" target="_blank" class="contact-link">
+              <div class="contact-link-icon" style="background:rgba(255,255,255,0.06);">
+                <i class="fab fa-github" style="color:var(--text);"></i>
+              </div>
+              <div class="contact-link-text">
+                <div class="cl-label">GitHub</div>
+                <div class="cl-val">github.com/alexmorgan</div>
+              </div>
+              <i class="fas fa-arrow-right cl-arrow"></i>
+            </a>
+
+            <a href="https://linkedin.com/in/alexmorgan" target="_blank" class="contact-link">
+              <div class="contact-link-icon" style="background:rgba(0,100,255,0.1);">
+                <i class="fab fa-linkedin-in" style="color:#4a9eff;"></i>
+              </div>
+              <div class="contact-link-text">
+                <div class="cl-label">LinkedIn</div>
+                <div class="cl-val">linkedin.com/in/alexmorgan</div>
+              </div>
+              <i class="fas fa-arrow-right cl-arrow"></i>
+            </a>
+
+            <a href="https://kaggle.com/alexmorgan" target="_blank" class="contact-link">
+              <div class="contact-link-icon" style="background:rgba(32,176,255,0.1);">
+                <i class="fab fa-kaggle" style="color:#20b0ff;"></i>
+              </div>
+              <div class="contact-link-text">
+                <div class="cl-label">Kaggle</div>
+                <div class="cl-val">kaggle.com/alexmorgan</div>
+              </div>
+              <i class="fas fa-arrow-right cl-arrow"></i>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="glass contact-form-card reveal-right">
+          <div class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="John"/>
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Doe"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="john@example.com"/>
+            </div>
+            <div class="form-group">
+              <label>Subject</label>
+              <input type="text" placeholder="Internship opportunity / Collaboration..."/>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="5" placeholder="Tell me about the opportunity or project..."></textarea>
+            </div>
+            <button class="btn-primary btn-full" onclick="handleFormSubmit(event)">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+            <div id="formMsg" class="form-success">
+              ✅ Message sent! I'll get back to you soon.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-socials">
+      <a href="#" class="footer-social"><i class="fab fa-github"></i></a>
+      <a href="#" class="footer-social"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="footer-social"><i class="fab fa-kaggle"></i></a>
+      <a href="#" class="footer-social"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="footer-social"><i class="fas fa-rss"></i></a>
+    </div>
+    <div class="footer-copy">
+      Crafted with <span class="heart">♥</span> by <strong>Alex Morgan</strong> · © 2024 · All rights reserved
+    </div>
+  </footer>
+
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
