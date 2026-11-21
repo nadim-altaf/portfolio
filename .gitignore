@@ -1,24 +1,24 @@
 # Dependencies
 node_modules/
+/.pnp
+.pnp.*
 
 # Next.js build
 .next/
 out/
+build/
+*.tsbuildinfo
+next-env.d.ts
 
 # Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-# Keep the example tracked
+.env*
 !.env.example
 
 # OS files
 .DS_Store
 Thumbs.db
 
-# Testing
+# Testing & reports
 coverage/
 playwright-report/
 
@@ -31,3 +31,8 @@ playwright-report/
 *.cer
 *.jks
 *.keystore
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
