@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Download, Menu, X } from "lucide-react";
+import { Download, FileText, Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { siteConfig } from "@/data/site";
 
@@ -51,17 +51,32 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           <ThemeToggle />
 
           {hasResume && (
-            <a
-              href={siteConfig.resumeUrl}
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-[10px] text-xs font-bold uppercase tracking-wider rounded-xl bg-[#00d4ff] text-[#080b10] shadow-[0_0_24px_rgba(0,212,255,0.3)] hover:shadow-[0_0_36px_rgba(0,212,255,0.5)] transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
-            >
-              <Download className="w-3.5 h-3.5" />
-              Resume
-            </a>
+            <div className="hidden sm:flex items-center gap-2">
+              <a
+                href={siteConfig.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-[9px] text-xs font-semibold text-[var(--text)] border border-[var(--border-color)] rounded-xl hover:border-[#00d4ff] hover:text-[#00d4ff] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
+                aria-label="View Resume in new tab"
+              >
+                <FileText className="w-3.5 h-3.5 text-[#00d4ff]" />
+                View Resume
+              </a>
+
+              <a
+                href={siteConfig.resumeUrl}
+                download="Nadim_Altaf_Resume.pdf"
+                className="inline-flex items-center gap-1.5 px-4 py-[9px] text-xs font-bold uppercase tracking-wider rounded-xl bg-[#00d4ff] text-[#080b10] shadow-[0_0_24px_rgba(0,212,255,0.3)] hover:shadow-[0_0_36px_rgba(0,212,255,0.5)] transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
+                aria-label="Download Resume PDF"
+              >
+                <Download className="w-3.5 h-3.5" />
+                Download Resume
+              </a>
+            </div>
           )}
 
           <button
@@ -76,7 +91,7 @@ export function Navbar() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[68px] bottom-0 bg-[var(--surface)] z-40 flex flex-col items-center justify-center gap-8 p-6 animate-in fade-in duration-200">
+        <div className="md:hidden fixed inset-x-0 top-[68px] bottom-0 bg-[var(--surface)] z-40 flex flex-col items-center justify-center gap-6 p-6 animate-in fade-in duration-200">
           {siteConfig.navLinks.map((link) => (
             <Link
               key={link.href}
@@ -88,14 +103,27 @@ export function Navbar() {
             </Link>
           ))}
           {hasResume && (
-            <a
-              href={siteConfig.resumeUrl}
-              onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center gap-2 px-8 py-3 text-sm font-bold uppercase tracking-wider rounded-xl bg-[#00d4ff] text-[#080b10] shadow-[0_0_24px_rgba(0,212,255,0.3)] mt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
-            >
-              <Download className="w-4 h-4" />
-              Resume
-            </a>
+            <div className="flex flex-col gap-3 w-full max-w-xs mt-4">
+              <a
+                href={siteConfig.resumeUrl}
+                download="Nadim_Altaf_Resume.pdf"
+                onClick={() => setMobileMenuOpen(false)}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-wider rounded-xl bg-[#00d4ff] text-[#080b10] shadow-[0_0_24px_rgba(0,212,255,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
+              >
+                <Download className="w-4 h-4" />
+                Download Resume
+              </a>
+              <a
+                href={siteConfig.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-xl border border-[var(--border-color)] text-[var(--text)] hover:border-[#00d4ff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
+              >
+                <FileText className="w-4 h-4 text-[#00d4ff]" />
+                View Resume
+              </a>
+            </div>
           )}
         </div>
       )}

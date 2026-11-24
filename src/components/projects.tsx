@@ -1,6 +1,7 @@
 "use client";
 
 import { ExternalLink, AlertCircle } from "lucide-react";
+import { AppIcon } from "./icon";
 import { GithubIcon } from "./icons";
 import { GlassCard } from "./glass-card";
 import { SectionHeader } from "./section-header";
@@ -50,7 +51,9 @@ export function Projects() {
                 <GlassCard className="group overflow-hidden flex flex-col rounded-2xl transition-all duration-300 hover:border-[#00d4ff]/40 hover:shadow-[0_24px_60px_rgba(0,0,0,0.4)]">
                   <div className="h-44 overflow-hidden relative flex items-center justify-between px-8 bg-gradient-to-r from-[#0a1628] to-[#1a3a5c]">
                     <div className="flex items-center gap-4">
-                      <span className="text-5xl">{project.emoji}</span>
+                      <div className="w-14 h-14 rounded-2xl bg-[#00d4ff]/10 border border-[#00d4ff]/25 flex items-center justify-center text-[#00d4ff] shrink-0">
+                        <AppIcon name={project.icon} className="w-7 h-7" />
+                      </div>
                       <div>
                         <div className="text-xs uppercase tracking-widest text-[#00d4ff] font-bold">
                           {project.category}

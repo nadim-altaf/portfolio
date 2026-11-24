@@ -1,3 +1,5 @@
+import type { IconName } from "@/components/icon";
+
 export interface NavLink {
   label: string;
   href: string;
@@ -11,7 +13,7 @@ export interface StatItem {
 
 export interface SkillCategory {
   title: string;
-  icon: string;
+  icon: IconName;
   iconBg: string;
   tags: string[];
 }
@@ -22,7 +24,7 @@ export interface FocusTopic {
 }
 
 export interface HighlightItem {
-  icon: string;
+  icon: IconName;
   title: string;
   subtitle: string;
 }
@@ -44,7 +46,7 @@ export interface CertificateItem {
   year: string;
   scope: string;
   note: string;
-  icon: string;
+  icon: IconName;
   iconBg: string;
   verificationUrl: string;
   pdfPath: string;
@@ -88,7 +90,8 @@ export const siteConfig = {
     { label: "Certs", href: "#certificates" },
     { label: "Contact", href: "#contact" },
   ] as NavLink[],
-  resumeUrl: "", // TODO: add public/resume.pdf when available
+  resumeUrl: "/resume.pdf",
+  resumeFilename: "Nadim_Altaf_Resume.pdf",
   heroStats: [
     { value: "Applied AI", label: "Primary Direction", color: "cyan" },
     { value: "B.Tech", label: "Computer Science & Eng", color: "gold" },
@@ -137,10 +140,10 @@ export const siteConfig = {
         "Become an accomplished AI Engineer and help build reliable, scalable, and impactful AI-powered products.",
     },
     highlights: [
-      { icon: "🎓", title: "B.Tech CSE", subtitle: "Central Univ. of Kashmir" },
-      { icon: "⚡", title: "Target Role", subtitle: "Applied AI Engineer" },
-      { icon: "📍", title: "Location", subtitle: "Srinagar, J&K, India" },
-      { icon: "🛠️", title: "Tech Stack", subtitle: "Python, FastAPI, ML" },
+      { icon: "graduation-cap", title: "B.Tech CSE", subtitle: "Central Univ. of Kashmir" },
+      { icon: "zap", title: "Target Role", subtitle: "Applied AI Engineer" },
+      { icon: "map-pin", title: "Location", subtitle: "Srinagar, J&K, India" },
+      { icon: "wrench", title: "Tech Stack", subtitle: "Python, FastAPI, ML" },
     ] as HighlightItem[],
   },
   currentlyFocusedOn: [
@@ -173,13 +176,13 @@ export const siteConfig = {
     categories: [
       {
         title: "Programming & Core",
-        icon: "💻",
+        icon: "code",
         iconBg: "rgba(0,212,255,0.1)",
         tags: ["Python", "Machine Learning Fundamentals", "Git", "GitHub"],
       },
       {
         title: "Backend & Systems",
-        icon: "⚙️",
+        icon: "settings",
         iconBg: "rgba(240,180,41,0.1)",
         tags: [
           "FastAPI",
@@ -192,7 +195,7 @@ export const siteConfig = {
       },
       {
         title: "Integration & Analytics",
-        icon: "📊",
+        icon: "bar-chart",
         iconBg: "rgba(138,43,226,0.15)",
         tags: [
           "Android Integration",
@@ -227,7 +230,7 @@ export const siteConfig = {
         scope:
           "11 courses covering Excel, SQL, Python, data visualization, Cognos Analytics, and a capstone project.",
         note: "Online, non-credit Professional Certificate.",
-        icon: "📜",
+        icon: "scroll",
         iconBg: "rgba(0,100,255,0.12)",
         verificationUrl:
           "https://coursera.org/verify/professional-cert/KV2QW2WF13UG",
@@ -241,7 +244,7 @@ export const siteConfig = {
     subtitle:
       "Interested in Applied AI Engineering, collaborative projects, or discussions around LLMs and Agentic AI. My inbox is open.",
     info: {
-      email: "", // TODO: add email from CONTENT.md once provided
+      email: "nadimaltaf271@gmail.com",
       github: {
         label: "github.com/nadim-altaf",
         url: "https://github.com/nadim-altaf",

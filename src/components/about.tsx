@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Target, Compass } from "lucide-react";
+import { AppIcon } from "./icon";
 import { GlassCard } from "./glass-card";
 import { SectionHeader } from "./section-header";
 import { ScrollReveal } from "./scroll-reveal";
@@ -98,8 +99,10 @@ export function About() {
 
             <div className="grid grid-cols-2 gap-3.5">
               {about.highlights.map((item, index) => (
-                <GlassCard key={index} className="p-4 text-center">
-                  <div className="text-2xl mb-1">{item.icon}</div>
+                <GlassCard key={index} className="p-4 text-center flex flex-col items-center">
+                  <div className="w-8 h-8 rounded-lg bg-[rgba(0,212,255,0.1)] text-[#00d4ff] flex items-center justify-center mb-2">
+                    <AppIcon name={item.icon} className="w-4 h-4" />
+                  </div>
                   <div className="text-xs font-bold text-[var(--text)]">
                     {item.title}
                   </div>

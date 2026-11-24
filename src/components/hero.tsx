@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Rocket, Mail, FileText } from "lucide-react";
+import { Rocket, Mail, Download, ExternalLink } from "lucide-react";
 import { TypingEffect } from "./typing-effect";
 import { ScrollReveal } from "./scroll-reveal";
 import { siteConfig } from "@/data/site";
@@ -64,32 +64,47 @@ export function Hero() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.4}>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <Link
                 href="#projects"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm bg-[#00d4ff] text-[#080b10] shadow-[0_0_24px_rgba(0,212,255,0.3)] hover:shadow-[0_0_40px_rgba(0,212,255,0.5)] transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm bg-[#00d4ff] text-[#080b10] shadow-[0_0_24px_rgba(0,212,255,0.3)] hover:shadow-[0_0_40px_rgba(0,212,255,0.5)] transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
               >
                 <Rocket className="w-4 h-4" />
                 View Projects
               </Link>
 
+              {hasResume && (
+                <>
+                  <a
+                    href={siteConfig.resumeUrl}
+                    download="Nadim_Altaf_Resume.pdf"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm bg-transparent text-[var(--text)] border border-[var(--border-color)] hover:border-[#00d4ff] hover:bg-[rgba(0,212,255,0.06)] transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
+                    aria-label="Download Nadim Altaf Resume"
+                  >
+                    <Download className="w-4 h-4 text-[#00d4ff]" />
+                    Download Resume
+                  </a>
+
+                  <a
+                    href={siteConfig.resumeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-xl text-sm font-semibold text-[var(--muted)] hover:text-[#00d4ff] hover:border-[#00d4ff]/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
+                    aria-label="View Resume in a new tab"
+                  >
+                    <span>View Resume</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </>
+              )}
+
               <Link
                 href="#contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm bg-transparent text-[var(--text)] border border-[var(--border-color)] hover:border-[#00d4ff] hover:bg-[rgba(0,212,255,0.06)] transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
+                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm text-[var(--muted)] hover:text-[var(--text)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
               >
                 <Mail className="w-4 h-4" />
                 Get in Touch
               </Link>
-
-              {hasResume && (
-                <a
-                  href={siteConfig.resumeUrl}
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm bg-transparent text-[var(--text)] border border-[var(--border-color)] hover:border-[#00d4ff] hover:bg-[rgba(0,212,255,0.06)] transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
-                >
-                  <FileText className="w-4 h-4" />
-                  Resume
-                </a>
-              )}
             </div>
           </ScrollReveal>
 

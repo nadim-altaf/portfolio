@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, ArrowRight, Send } from "lucide-react";
+import { Mail, ArrowRight, Send, FileText, Download } from "lucide-react";
 import { GithubIcon, LinkedinIcon, KaggleIcon } from "./icons";
 import { GlassCard } from "./glass-card";
 import { SectionHeader } from "./section-header";
@@ -30,6 +30,7 @@ export function Contact() {
   const hasKaggle = Boolean(
     contact.info.kaggle.url && contact.info.kaggle.url !== "#"
   );
+  const hasResume = Boolean(siteConfig.resumeUrl && siteConfig.resumeUrl !== "#");
 
   return (
     <section id="contact" className="py-28 relative">
@@ -131,6 +132,45 @@ export function Contact() {
                   </div>
                   <ArrowRight className="w-4 h-4 text-[var(--muted)]" />
                 </a>
+              )}
+
+              {hasResume && (
+                <div className="p-4 rounded-xl bg-[var(--surface2)] border border-[var(--border-color)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 transition-all hover:border-[#00d4ff]/40">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[rgba(240,180,41,0.1)] text-[#f0b429]">
+                      <FileText className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-[0.68rem] uppercase tracking-wider text-[var(--muted)] font-bold">
+                        Curriculum Vitae
+                      </div>
+                      <div className="text-sm font-semibold text-[var(--text)]">
+                        Nadim Altaf Resume
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 self-end sm:self-auto">
+                    <a
+                      href={siteConfig.resumeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1.5 rounded-lg text-xs font-semibold text-[var(--text)] hover:text-[#00d4ff] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
+                      aria-label="View Resume in new tab"
+                    >
+                      View
+                    </a>
+                    <a
+                      href={siteConfig.resumeUrl}
+                      download="Nadim_Altaf_Resume.pdf"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-[#00d4ff] text-[#080b10] hover:shadow-[0_0_15px_rgba(0,212,255,0.4)] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
+                      aria-label="Download Resume"
+                    >
+                      <Download className="w-3 h-3" />
+                      Download
+                    </a>
+                  </div>
+                </div>
               )}
             </div>
           </ScrollReveal>

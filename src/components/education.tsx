@@ -1,5 +1,6 @@
 "use client";
 
+import { GraduationCap } from "lucide-react";
 import { GlassCard } from "./glass-card";
 import { SectionHeader } from "./section-header";
 import { ScrollReveal } from "./scroll-reveal";
@@ -29,9 +30,9 @@ export function Education() {
         </ScrollReveal>
 
         <ScrollReveal direction="up" delay={0.1}>
-          <GlassCard className="p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start max-w-3xl mx-auto">
-            <div className="w-14 h-14 rounded-2xl bg-[rgba(240,180,41,0.1)] border border-[rgba(240,180,41,0.2)] flex items-center justify-center text-2xl shrink-0">
-              🎓
+          <GlassCard className="p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start max-w-3xl mx-auto transition-all duration-300 hover:border-[#00d4ff]/40">
+            <div className="w-14 h-14 rounded-2xl bg-[rgba(240,180,41,0.1)] border border-[rgba(240,180,41,0.2)] flex items-center justify-center text-[#f0b429] shrink-0">
+              <GraduationCap className="w-7 h-7" />
             </div>
 
             <div className="flex-1">

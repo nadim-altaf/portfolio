@@ -1,5 +1,6 @@
 "use client";
 
+import { AppIcon } from "./icon";
 import { GlassCard } from "./glass-card";
 import { SectionHeader } from "./section-header";
 import { ScrollReveal } from "./scroll-reveal";
@@ -30,10 +31,10 @@ export function Skills() {
             >
               <GlassCard className="p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(0,212,255,0.3)] h-full">
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center text-lg mb-4"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
                   style={{ background: category.iconBg }}
                 >
-                  {category.icon}
+                  <AppIcon name={category.icon} className="w-5 h-5 text-[var(--text)]" />
                 </div>
                 <h3 className="text-base font-bold text-[var(--text)] mb-4">
                   {category.title}
