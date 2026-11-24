@@ -7,3 +7,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Version Control & Pushing Rules
+
+- After each completed task, once lint, typecheck and build pass and the work is committed, push with: `git push origin main`
+- Before every push, check that `.env.local` and other `.env*` files (except `.env.example`) are not tracked and that no token, key or password is in the commit. If anything looks wrong, stop and ask me.
+- Never force push. If a push is rejected, run `git pull --rebase origin main`, show me the result, and wait for me.
+- If the sandbox needs approval for the push, ask me.

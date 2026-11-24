@@ -47,9 +47,10 @@ Before finishing any task:
 ## Version Control
 
 - Commit after every completed phase with a **Conventional Commit** message (`feat:`, `fix:`, `chore:`, `docs:`).
-- **Never commit** `.env` files, tokens, or secrets.
-- **Never force push.**
-- Remote: `https://github.com/nadim-altaf/portfolio.git` (branch: `main`). **Push only when the user says so.**
+- After each completed task, once lint, typecheck and build pass and the work is committed, push with: `git push origin main`
+- Before every push, check that `.env.local` and other `.env*` files (except `.env.example`) are not tracked and that no token, key or password is in the commit. If anything looks wrong, stop and ask me.
+- Never force push. If a push is rejected, run `git pull --rebase origin main`, show me the result, and wait for me.
+- If the sandbox needs approval for the push, ask me.
 
 ## Comment Style (write like a human developer)
 
