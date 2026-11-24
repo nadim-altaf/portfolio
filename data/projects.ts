@@ -6,12 +6,14 @@ export interface Project {
   category: string;
   status: string;
   problem: string;
-  whatIDid: string;
+  description: string;
   tech: string[];
   icon: IconName;
-  bgGradient: string;
-  repoUrl: string;
-  demoUrl: string;
+  bgGradient?: string;
+  repoUrl?: string;
+  demoUrl?: string;
+  // TODO: add real measurable result once shipped (CONTENT.md lists none yet)
+  result?: string;
 }
 
 export const projectsData: Project[] = [
@@ -22,7 +24,7 @@ export const projectsData: Project[] = [
     status: "In development",
     problem:
       "Helping analyse student wellbeing from structured assessments and lifestyle-related information.",
-    whatIDid:
+    description:
       "Building an AI-powered decision-support platform with a FastAPI backend, a machine learning analysis layer, a SQLite database, and an Android app, designed around privacy and user consent.",
     tech: ["Python", "FastAPI", "Machine Learning", "SQLite", "REST APIs", "Android"],
     icon: "brain",
