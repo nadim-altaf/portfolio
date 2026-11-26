@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Download, FileText, Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
@@ -9,46 +9,99 @@ import { siteConfig } from "@/data/site";
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const sectionIds = [
+      "hero",
+      ...siteConfig.navLinks.map((link) => link.href.replace("#", "")),
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id === "hero" ? "" : entry.target.id);
+          }
+        }
+      },
+      { rootMargin: "-35% 0px -55% 0px" }
+    );
+
+    for (const id of sectionIds) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
 
   const hasResume = Boolean(siteConfig.resumeUrl && siteConfig.resumeUrl !== "#");
 
   return (
     <nav
+      aria-label="Primary"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-8 ${
         isScrolled
-          ? "bg-[rgba(8,11,16,0.85)] light:bg-[rgba(255,255,255,0.85)] backdrop-blur-xl border-b border-[var(--border-color)] shadow-sm"
+          ? "bg-[var(--obsidian)]/85 backdrop-blur-xl border-b border-[var(--border-color)] shadow-sm"
           : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="max-w-[1200px] mx-auto flex items-center justify-between h-[68px]">
         <Link
           href="#hero"
+          aria-label={`${siteConfig.name} home`}
           className="text-lg font-extrabold tracking-[-0.02em] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff] rounded-xs"
         >
           <span className="grad-cyan">{siteConfig.logoInitials}</span>
-          <span className="opacity-30 ml-1">/</span>
+          <span className="opacity-30 ml-1" aria-hidden="true">/</span>
         </Link>
 
         <ul className="hidden md:flex items-center gap-8 list-none">
-          {siteConfig.navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="text-xs uppercase tracking-[0.1em] font-semibold text-[var(--muted)] hover:text-[var(--text)] transition-colors relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff] rounded-xs"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+          {siteConfig.navLinks.map((link) => {
+            const sectionId = link.href.replace("#", "");
+            const isActive = activeSection === sectionId;
+            return (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  aria-current={isActive ? "location" : undefined}
+                  className={`text-xs uppercase tracking-[0.1em] font-semibold transition-colors relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff] rounded-xs ${
+                    isActive
+                      ? "text-[#00d4ff] after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-[2px] after:bg-[#00d4ff] after:rounded-full"
+                      : "text-[var(--muted)] hover:text-[var(--text)]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex items-center gap-2.5">
@@ -80,10 +133,13 @@ export function Navbar() {
           )}
 
           <button
+            ref={menuButtonRef}
             type="button"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
-            className="md:hidden p-2 text-[var(--text)] rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
-            aria-label="Toggle navigation menu"
+            className="md:hidden p-2 text-[var(--text)] rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff] cursor-pointer"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav-menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -91,17 +147,28 @@ export function Navbar() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[68px] bottom-0 bg-[var(--surface)] z-40 flex flex-col items-center justify-center gap-6 p-6 animate-in fade-in duration-200">
-          {siteConfig.navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-2xl font-bold text-[var(--text)] hover:text-[#00d4ff] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff] rounded-md px-4 py-2"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <div
+          id="mobile-nav-menu"
+          className="md:hidden fixed inset-x-0 top-[68px] bottom-0 bg-[var(--surface)] z-40 flex flex-col items-center justify-center gap-6 p-6 animate-in fade-in duration-200"
+        >
+          {siteConfig.navLinks.map((link) => {
+            const isActive = activeSection === link.href.replace("#", "");
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive ? "location" : undefined}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`text-2xl font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff] rounded-md px-4 py-2 ${
+                  isActive
+                    ? "text-[#00d4ff]"
+                    : "text-[var(--text)] hover:text-[#00d4ff]"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           {hasResume && (
             <div className="flex flex-col gap-3 w-full max-w-xs mt-4">
               <a

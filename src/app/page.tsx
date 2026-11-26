@@ -7,12 +7,13 @@ import { Education } from "@/components/education";
 import { Certificates } from "@/components/certificates";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import { BackToTop } from "@/components/back-to-top";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen">
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Hero />
         <About />
         <Skills />
@@ -22,6 +23,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }
