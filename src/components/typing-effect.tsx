@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useReducedMotion } from "framer-motion";
 
 interface TypingEffectProps {
   words: string[];
@@ -15,12 +16,24 @@ export function TypingEffect({
   deletingSpeed = 40,
   pauseDuration = 1600,
 }: TypingEffectProps) {
+  const shouldReduceMotion = useReducedMotion();
   const [wordIndex, setWordIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    if (!words.length) return;
+    const handleVisibilityChange = () => {
+      setIsVisible(!document.hidden);
+    };
+
+    handleVisibilityChange();
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, []);
+
+  useEffect(() => {
+    if (!words.length || shouldReduceMotion || !isVisible) return;
 
     const currentWord = words[wordIndex];
     let timeout: NodeJS.Timeout;
@@ -49,7 +62,21 @@ export function TypingEffect({
     }
 
     return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, wordIndex, words, typingSpeed, deletingSpeed, pauseDuration]);
+  }, [
+    charIndex,
+    isDeleting,
+    wordIndex,
+    words,
+    typingSpeed,
+    deletingSpeed,
+    pauseDuration,
+    shouldReduceMotion,
+    isVisible,
+  ]);
+
+  if (shouldReduceMotion) {
+    return <span className="grad-gold font-bold">{words[0] ?? ""}</span>;
+  }
 
   const currentText = words[wordIndex]?.slice(0, charIndex) || "";
 
