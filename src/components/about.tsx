@@ -32,7 +32,7 @@ export function About() {
                 <div className="w-40 h-40 sm:w-44 sm:h-44 rounded-2xl overflow-hidden glass p-1.5 shadow-xl relative z-10 border border-[#00d4ff]/30">
                   <Image
                     src={about.photo}
-                    alt={siteConfig.name}
+                    alt={`Portrait of ${siteConfig.name}`}
                     width={176}
                     height={176}
                     priority
@@ -40,6 +40,7 @@ export function About() {
                   />
                 </div>
                 <div
+                  aria-hidden="true"
                   className="absolute -inset-2 rounded-2xl opacity-40 blur-lg -z-0 pointer-events-none"
                   style={{
                     background:
