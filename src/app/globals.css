@@ -26,7 +26,10 @@
 
 :root {
   --cyan: #00d4ff;
+  --cyan-end: #60efff;
   --gold: #f0b429;
+  --gold-end: #ffd166;
+  --focus-ring: #00d4ff;
   --obsidian: #080b10;
   --surface: #0d1117;
   --surface2: #161b22;
@@ -38,6 +41,11 @@
 }
 
 .light {
+  --cyan: #006d88;
+  --cyan-end: #004e64;
+  --gold: #8a5a00;
+  --gold-end: #6b4400;
+  --focus-ring: #006d88;
   --obsidian: #f0f4f8;
   --surface: #ffffff;
   --surface2: #f6f8fa;
@@ -48,6 +56,11 @@
 }
 
 .dark {
+  --cyan: #00d4ff;
+  --cyan-end: #60efff;
+  --gold: #f0b429;
+  --gold-end: #ffd166;
+  --focus-ring: #00d4ff;
   --obsidian: #080b10;
   --surface: #0d1117;
   --surface2: #161b22;
@@ -100,14 +113,14 @@ body::before {
 }
 
 .grad-cyan {
-  background: linear-gradient(135deg, var(--cyan) 0%, #60efff 100%);
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-end) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .grad-gold {
-  background: linear-gradient(135deg, var(--gold) 0%, #ffd166 100%);
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-end) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

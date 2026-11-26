@@ -93,7 +93,7 @@ export function Navbar() {
                   aria-current={isActive ? "location" : undefined}
                   className={`text-xs uppercase tracking-[0.1em] font-semibold transition-colors relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff] rounded-xs ${
                     isActive
-                      ? "text-[#00d4ff] after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-[2px] after:bg-[#00d4ff] after:rounded-full"
+                      ? "text-[var(--cyan)] after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-[2px] after:bg-[var(--cyan)] after:rounded-full"
                       : "text-[var(--muted)] hover:text-[var(--text)]"
                   }`}
                 >

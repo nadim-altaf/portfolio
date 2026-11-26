@@ -56,7 +56,7 @@ export function About() {
             </div>
 
             <div className="p-6 rounded-xl bg-[rgba(0,212,255,0.04)] border border-[rgba(0,212,255,0.15)]">
-              <h4 className="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#00d4ff] mb-2">
+              <h4 className="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[var(--cyan)] mb-2">
                 <Target className="w-4 h-4" />
                 {about.careerGoal.title}
               </h4>
@@ -69,7 +69,7 @@ export function About() {
           <ScrollReveal direction="right" className="lg:col-span-5 space-y-5" id="focus">
             <GlassCard className="p-7">
               <div className="flex items-center justify-between mb-4">
-                <h4 className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#00d4ff]">
+                <h4 className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--cyan)]">
                   <Compass className="w-4 h-4" />
                   Currently focused on
                 </h4>
@@ -100,7 +100,7 @@ export function About() {
             <div className="grid grid-cols-2 gap-3.5">
               {about.highlights.map((item, index) => (
                 <GlassCard key={index} className="p-4 text-center flex flex-col items-center">
-                  <div className="w-8 h-8 rounded-lg bg-[rgba(0,212,255,0.1)] text-[#00d4ff] flex items-center justify-center mb-2">
+                  <div className="w-8 h-8 rounded-lg bg-[rgba(0,212,255,0.1)] text-[var(--cyan)] flex items-center justify-center mb-2">
                     <AppIcon name={item.icon} className="w-4 h-4" />
                   </div>
                   <div className="text-xs font-bold text-[var(--text)]">

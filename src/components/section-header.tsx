@@ -18,11 +18,11 @@ export function SectionHeader({
       className={`${centered ? "text-center" : ""} ${className}`}
     >
       <div
-        className={`inline-flex items-center gap-2 text-[0.72rem] font-bold tracking-[0.18em] uppercase text-[#00d4ff] mb-4 ${
+        className={`inline-flex items-center gap-2 text-[0.72rem] font-bold tracking-[0.18em] uppercase text-[var(--cyan)] mb-4 ${
           centered ? "justify-center" : ""
         }`}
       >
-        <span className="w-6 h-[2px] bg-[#00d4ff] rounded-xs" />
+        <span className="w-6 h-[2px] bg-[var(--cyan)] rounded-xs" />
         {label}
       </div>
 

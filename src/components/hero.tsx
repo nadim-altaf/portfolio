@@ -34,8 +34,8 @@ export function Hero() {
       <div className="max-w-[1200px] mx-auto px-6 w-full flex flex-col lg:flex-row items-center justify-between gap-12">
         <div className="flex-1 max-w-[640px]">
           <ScrollReveal direction="up" delay={0}>
-            <div className="inline-flex items-center gap-2 bg-[rgba(0,212,255,0.08)] border border-[rgba(0,212,255,0.2)] rounded-full px-4 py-1.5 mb-8 text-xs font-semibold tracking-wide text-[#00d4ff]">
-              <span className="w-1.5 h-1.5 bg-[#00d4ff] rounded-full animate-pulse-subtle" />
+            <div className="inline-flex items-center gap-2 bg-[rgba(0,212,255,0.08)] border border-[rgba(0,212,255,0.2)] rounded-full px-4 py-1.5 mb-8 text-xs font-semibold tracking-wide text-[var(--cyan)]">
+              <span className="w-1.5 h-1.5 bg-[var(--cyan)] rounded-full animate-pulse-subtle" />
               {siteConfig.statusBadge}
             </div>
           </ScrollReveal>

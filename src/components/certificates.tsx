@@ -127,13 +127,13 @@ function FeaturedCertificateCard({ cert }: { cert: Certificate }) {
     <GlassCard className="p-8 border-[#00d4ff]/30 shadow-lg relative overflow-hidden transition-all duration-300 hover:border-[#00d4ff]/60">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
         <div className="flex items-start gap-4 flex-1">
-          <div className="w-12 h-12 rounded-xl bg-[rgba(0,212,255,0.1)] text-[#00d4ff] border border-[rgba(0,212,255,0.2)] flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-[rgba(0,212,255,0.1)] text-[var(--cyan)] border border-[rgba(0,212,255,0.2)] flex items-center justify-center shrink-0">
             <Award className="w-6 h-6" />
           </div>
 
           <div className="space-y-2 flex-1">
             <div className="flex flex-wrap items-center gap-2.5">
-              <span className="text-[0.68rem] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#00d4ff]/15 text-[#00d4ff] border border-[#00d4ff]/30">
+              <span className="text-[0.68rem] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[rgba(0,212,255,0.12)] text-[var(--cyan)] border border-[rgba(0,212,255,0.3)]">
                 Featured Specialization
               </span>
               <span className="text-xs font-semibold text-[var(--muted)]">
@@ -212,7 +212,7 @@ function CompactCertificateCard({ cert }: { cert: Certificate }) {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="space-y-1.5 flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2 text-xs">
-            <span className="font-bold text-[#00d4ff] uppercase tracking-wider text-[0.68rem]">
+            <span className="font-bold text-[var(--cyan)] uppercase tracking-wider text-[0.68rem]">
               {cert.issuer}
             </span>
             <span className="text-[var(--muted)]">·</span>
@@ -261,7 +261,7 @@ function CompactCertificateCard({ cert }: { cert: Certificate }) {
               href={cert.verifyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-[#00d4ff] hover:underline transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
+              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-[var(--cyan)] hover:underline transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d4ff]"
               aria-label={`Verify ${cert.name}`}
             >
               <span>Verify</span>

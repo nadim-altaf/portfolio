@@ -11,10 +11,10 @@ export function Education() {
   const { item } = education;
 
   const badgeColorClasses = {
-    gold: "bg-[rgba(240,180,41,0.1)] text-[#f0b429] border-[rgba(240,180,41,0.3)]",
-    cyan: "bg-[rgba(0,212,255,0.1)] text-[#00d4ff] border-[rgba(0,212,255,0.3)]",
-    green: "bg-[rgba(40,200,64,0.1)] text-[#28c840] border-[rgba(40,200,64,0.3)]",
-    purple: "bg-[rgba(138,43,226,0.1)] text-[#a78bfa] border-[rgba(138,43,226,0.3)]",
+    gold: "bg-[rgba(240,180,41,0.1)] text-[var(--gold)] border-[rgba(240,180,41,0.3)]",
+    cyan: "bg-[rgba(0,212,255,0.1)] text-[var(--cyan)] border-[rgba(0,212,255,0.3)]",
+    green: "bg-[rgba(40,200,64,0.1)] text-[#1a7f37] dark:text-[#28c840] border-[rgba(40,200,64,0.3)]",
+    purple: "bg-[rgba(138,43,226,0.1)] text-[#6d28d9] dark:text-[#a78bfa] border-[rgba(138,43,226,0.3)]",
   };
 
   return (
@@ -31,7 +31,7 @@ export function Education() {
 
         <ScrollReveal direction="up" delay={0.1}>
           <GlassCard className="p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start max-w-3xl mx-auto transition-all duration-300 hover:border-[#00d4ff]/40">
-            <div className="w-14 h-14 rounded-2xl bg-[rgba(240,180,41,0.1)] border border-[rgba(240,180,41,0.2)] flex items-center justify-center text-[#f0b429] shrink-0">
+            <div className="w-14 h-14 rounded-2xl bg-[rgba(240,180,41,0.1)] border border-[rgba(240,180,41,0.2)] flex items-center justify-center text-[var(--gold)] shrink-0">
               <GraduationCap className="w-7 h-7" />
             </div>
 

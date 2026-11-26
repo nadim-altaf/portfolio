@@ -158,7 +158,7 @@ export function Projects() {
                   </div>
 
                   <div className="p-6 flex-1 flex flex-col gap-5">
-                    <div className="sm:hidden inline-flex self-start items-center gap-1 px-2.5 py-1 rounded-full text-[0.68rem] font-bold bg-[#f0b429]/15 text-[#f0b429] border border-[#f0b429]/30">
+                    <div className="sm:hidden inline-flex self-start items-center gap-1 px-2.5 py-1 rounded-full text-[0.68rem] font-bold bg-[rgba(240,180,41,0.15)] text-[var(--gold)] border border-[rgba(240,180,41,0.3)]">
                       <AlertCircle className="w-3 h-3" />
                       {project.status}
                     </div>
@@ -189,7 +189,7 @@ export function Projects() {
                         {project.tech.map((t) => (
                           <span
                             key={t}
-                            className="font-mono text-[0.68rem] font-semibold px-2.5 py-0.5 rounded-md bg-[rgba(0,212,255,0.08)] text-[#00d4ff] border border-[rgba(0,212,255,0.18)]"
+                            className="font-mono text-[0.68rem] font-semibold px-2.5 py-0.5 rounded-md bg-[rgba(0,212,255,0.08)] text-[var(--cyan)] border border-[rgba(0,212,255,0.18)]"
                           >
                             {t}
                           </span>
@@ -245,10 +245,10 @@ export function Projects() {
             <>
               <DialogHeader className="gap-1.5">
                 <div className="flex items-center gap-2">
-                  <span className="text-[0.7rem] uppercase tracking-widest text-[#00d4ff] font-bold">
+                  <span className="text-[0.7rem] uppercase tracking-widest text-[var(--cyan)] font-bold">
                     {selectedProject.category}
                   </span>
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.65rem] font-bold bg-[#f0b429]/15 text-[#f0b429] border border-[#f0b429]/30">
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.65rem] font-bold bg-[rgba(240,180,41,0.15)] text-[var(--gold)] border border-[rgba(240,180,41,0.3)]">
                     <AlertCircle className="w-2.5 h-2.5" />
                     {selectedProject.status}
                   </span>
@@ -263,7 +263,7 @@ export function Projects() {
 
               <div className="space-y-4 my-2">
                 <div className="p-4 rounded-xl bg-[var(--surface2)] border border-[var(--border-color)]">
-                  <h4 className="text-[0.7rem] font-bold uppercase tracking-wider text-[#00d4ff] mb-1">
+                  <h4 className="text-[0.7rem] font-bold uppercase tracking-wider text-[var(--cyan)] mb-1">
                     Problem
                   </h4>
                   <p className="text-xs sm:text-sm text-[var(--text)] leading-relaxed">
@@ -272,7 +272,7 @@ export function Projects() {
                 </div>
 
                 <div className="p-4 rounded-xl bg-[var(--surface2)] border border-[var(--border-color)]">
-                  <h4 className="text-[0.7rem] font-bold uppercase tracking-wider text-[#00d4ff] mb-1">
+                  <h4 className="text-[0.7rem] font-bold uppercase tracking-wider text-[var(--cyan)] mb-1">
                     What I Built
                   </h4>
                   <p className="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
@@ -282,7 +282,7 @@ export function Projects() {
 
                 {selectedProject.result && (
                   <div className="p-4 rounded-xl bg-[var(--surface2)] border border-[var(--border-color)]">
-                    <h4 className="text-[0.7rem] font-bold uppercase tracking-wider text-[#00d4ff] mb-1">
+                    <h4 className="text-[0.7rem] font-bold uppercase tracking-wider text-[var(--cyan)] mb-1">
                       Measurable Result
                     </h4>
                     <p className="text-xs sm:text-sm text-[var(--text)] leading-relaxed">
